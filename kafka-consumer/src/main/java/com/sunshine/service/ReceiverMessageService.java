@@ -24,8 +24,7 @@ public class ReceiverMessageService {
         Optional<?> kafkaMessage = Optional.ofNullable(record.value());
         if (kafkaMessage.isPresent()) {
             Object message = kafkaMessage.get();
-//            log.info("record：{} ----message：{}", record, message);
-            log.info("我是消费者一,我消费了消息{}", message);
+            log.info("receiver1--我是消费者二,我消费了消息{}--分区为{}", message, record.partition());
             // 手动提交offset
             ack.acknowledge();
         }
@@ -36,8 +35,7 @@ public class ReceiverMessageService {
         Optional<?> kafkaMessage = Optional.ofNullable(record.value());
         if (kafkaMessage.isPresent()) {
             Object message = kafkaMessage.get();
-//            log.info("record：{} ----message：{}", record, message);
-            log.info("我是消费者二,我消费了消息{}", message);
+            log.info("receiver2--我是消费者二,我消费了消息{}--分区为{}", message, record.partition());
             // 手动提交offset
             ack.acknowledge();
         }
