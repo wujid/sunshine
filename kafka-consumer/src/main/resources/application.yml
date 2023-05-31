@@ -3,7 +3,7 @@ server:
 
 spring:
   kafka:
-    bootstrap-servers: 192.168.5.57:9092
+    bootstrap-servers: 192.168.5.107:9092,192.168.5.107:9093,192.168.5.107:9094
     producer:
       # 发生错误后，消息重发的次数
       retries: 0
@@ -40,5 +40,5 @@ spring:
 
 kafka:
   topic:
-    group-id: orderGroupId
-    topic-name: orderTopic
+    group-id: group-sole-gps
+    topic-name: topic-sole-gps

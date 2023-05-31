@@ -49,7 +49,7 @@ public class SenderMessageService {
     public void sendMessage(String topic, Object object) {
         ListenableFuture<SendResult<String, Object>> future = kafkaTemplate.send(topic, object);
 
-        future.addCallback(new ListenableFutureCallback<SendResult<String, Object>>() {
+        future.addCallback(new ListenableFutureCallback<>() {
             @Override
             public void onFailure(Throwable throwable) {
                 log.info("发送消息失败:" + throwable.getMessage());

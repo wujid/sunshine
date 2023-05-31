@@ -39,7 +39,7 @@ public class SenderMessageController {
 
     @GetMapping("/sendMultiMessage")
     public void sendMultiMessage() {
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 5; i++) {
             String message = "我是第" + i + "条消息";
             SendMessageRun sendMessageRun = new SendMessageRun(topic, message);
             threadPoolTaskExecutor.execute(sendMessageRun);

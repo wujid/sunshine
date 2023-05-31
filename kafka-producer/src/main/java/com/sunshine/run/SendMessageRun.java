@@ -30,7 +30,7 @@ public class SendMessageRun implements Runnable{
         final KafkaTemplate kafkaTemplate = SpringContextUtils.getBean(KafkaTemplate.class);
         ListenableFuture<SendResult<String, Object>> future = kafkaTemplate.send(topic, message);
 
-        future.addCallback(new ListenableFutureCallback<SendResult<String, Object>>() {
+        future.addCallback(new ListenableFutureCallback<>() {
             @Override
             public void onFailure(Throwable throwable) {
                 logger.error("发送消息失败:消息内容为{}", message);
